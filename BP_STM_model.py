@@ -123,6 +123,6 @@ BP_model.fit(
         batch_size=1, 
         nb_epoch=500, 
         verbose=2, 
-        validation_data=(final_input_letters, final_output_letters)
+        validation_data=(X_test, y_test)
     )
 BP_model.save('B&P_model.h5')
