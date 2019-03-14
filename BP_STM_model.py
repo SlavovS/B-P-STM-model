@@ -171,7 +171,7 @@ print(prediction[0][5])
 # Checking the cosine similarity
 from scipy import spatial
 
-dataSetI = check[0][0]
-dataSetII = prediction[0][3]
-result = 1 - spatial.distance.cosine(dataSetI, dataSetII)
-print("The cosine similarity between a letter in the input and the model's output is: {} ".format(result))
+encoded_letter = check[0][0]
+recalled_letter = prediction[0][3]
+result = 1 - spatial.distance.cosine(encoded_letter, recalled_letter)
+print("The cosine similarity between the encoded letter in the input and the model's output is: {} ".format(result))
