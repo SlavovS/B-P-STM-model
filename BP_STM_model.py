@@ -127,7 +127,7 @@ BP_model.fit(
         verbose=2, 
         validation_data=(X_test, y_test)
     )
-BP_model.save('Chernova_B&P_model.h5')
+BP_model.save('B&P_model.h5')
 
 
   #Reloading and testing the model:
@@ -135,11 +135,10 @@ BP_model.save('Chernova_B&P_model.h5')
       # loss: 5.9517e-05 - acc: 1.0000 - val_loss: 1.9525 - val_acc: 0.7286
 
 from keras.models import load_model
-ISR_model = load_model('Chernova_B&P_model.h5')
+ISR_model = load_model('B&P_model.h5')
 
 
-#Epoch 500/500   with 10 training examples
-#0s - loss: 0.0462 - acc: 0.9714 - val_loss: 0.0459 - val_acc: 0.9714
+# Validating the model with a single trial
 check = np.array([[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -163,9 +162,6 @@ prediction = ISR_model.predict(check)
 print(prediction[0][3])
 print(prediction[0][4])
 print(prediction[0][5])
-
-# Epoch 500/500  with 100 training examples
-# 1s - loss: 0.2319 - acc: 0.8671 - val_loss: 0.2168 - val_acc: 0.8900
 
 
 # Checking the cosine similarity
